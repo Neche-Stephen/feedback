@@ -1,0 +1,4 @@
+feedback/node_modules
+csv-json/node_modules
+csv-json/data/extensions.csv
+csv-json/extension-dir/*
