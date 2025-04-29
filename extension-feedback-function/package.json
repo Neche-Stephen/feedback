@@ -1,0 +1,9 @@
+{
+    "name": "extension-feedback-function",
+    "version": "1.0.0",
+    "description": "Cloud function to send extension feedback to Google Sheets",
+    "main": "index.js",
+    "dependencies": {
+      "googleapis": "^92.0.0"
+    }
+  }
