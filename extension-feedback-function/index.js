@@ -48,7 +48,7 @@ exports.submitFormToSheet = async (req, res) => {
         formData.extensionId,
         formData.extensionName,
         formData.email || "",
-        issuesFormatted, "",
+        issuesFormatted,
         formData.issueLocation || "",
         formData.additionalDetails || "",
       ],
