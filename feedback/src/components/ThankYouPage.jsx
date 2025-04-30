@@ -2,7 +2,7 @@ import { CheckCircle } from "lucide-react";
 
 export default function ThankYouPage({ extensionName }) {
   return (
-    <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6 text-center">
+    <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6 text-center mx-auto mt-8">
       <div className="flex justify-center mb-4">
         <CheckCircle size={64} className="text-green-500" />
       </div>

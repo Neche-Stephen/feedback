@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import FeedbackForm from "./components/FeedbackForm";
 import ThankYouPage from "./components/ThankYouPage";
 import ErrorPage from "./components/ErrorPage";
 import LoadingSpinner from "./components/LoadingSpinner";
+import FeedbkForm from "./components/FeedbkForm";
 
 export default function App() {
   const [extensionData, setExtensionData] = useState(null);
@@ -91,17 +91,14 @@ export default function App() {
 
   if (formSubmitted) {
     return <ThankYouPage extensionName={extensionData.name} />;
-    
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen">
       {extensionData && (
-        <FeedbackForm
-          extensionData={extensionData}
-          onSubmit={handleFormSubmit}
-        />
+        <FeedbkForm extensionData={extensionData} onSubmit={handleFormSubmit} />
       )}
+      
     </div>
   );
 }
