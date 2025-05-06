@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MessageSquare, Menu, X, CheckCircle, AlertTriangle } from "lucide-react";
 
 export default function FeedbkForm({ extensionData, onSubmit }) {
+  console.log("Extension Data:", extensionData);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -21,14 +22,12 @@ export default function FeedbkForm({ extensionData, onSubmit }) {
 
   // Calculate progress based on form completion
   useEffect(() => {
-    let totalFields = 4; // Total number of form fields
+    let totalFields = 2; // Total number of form fields
     let filledFields = 0;
     
     // Check which fields are filled
     if (formData.issues.length > 0) filledFields++;
-    if (formData.issueLocation.trim()) filledFields++;
     if (formData.additionalDetails.trim()) filledFields++;
-    if (formData.email.trim()) filledFields++;
     
     // Calculate percentage
     const newProgress = Math.round((filledFields / totalFields) * 100);
@@ -304,9 +303,9 @@ export default function FeedbkForm({ extensionData, onSubmit }) {
           {/* Form Content */}
           <div className="p-6">
             {/* Progress Bar */}
-            <div className="mb-8">
+            <div className="mb-[33px]">
               <div className="flex justify-between text-sm mb-1">
-                <span>Keep the progress going</span>
+                <span className="font-medium">Keep the progress going</span>
                 <span>{progress}%</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
@@ -318,7 +317,7 @@ export default function FeedbkForm({ extensionData, onSubmit }) {
             </div>
 
             {/* Issues Selection */}
-            <div className="mb-8">
+            <div className="mb-[45px]">
               <h2 className="text-xl font-medium mb-4">
                 What specific issues are you experiencing? <span className="text-red-500">*</span>
               </h2>
@@ -329,8 +328,8 @@ export default function FeedbkForm({ extensionData, onSubmit }) {
                     type="button"
                     className={`py-2 px-4 rounded-md text-sm transition-colors duration-200 ${
                       formData.issues.includes(issue)
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                        ? 'bg-[#1671D9] text-white'
+                        : 'bg-[#F0F2F5] text-gray-800 hover:bg-gray-200'
                     }`}
                     onClick={() => handleIssueSelect(issue)}
                   >
@@ -345,23 +344,8 @@ export default function FeedbkForm({ extensionData, onSubmit }) {
               )}
             </div>
 
-            {/* Issue Location */}
-            <div className="mb-8">
-              <h2 className="text-xl font-medium mb-4">
-                Where are you experiencing this issue? (Optional)
-              </h2>
-              <input
-                type="text"
-                name="issueLocation"
-                value={formData.issueLocation}
-                onChange={handleInputChange}
-                placeholder="Example: YouTube.com, Facebook.com"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
             {/* Additional Details */}
-            <div className="mb-8">
+            <div className="mb-[45px]">
               <h2 className="text-xl font-medium mb-4">
                 Any additional details that might help us? (Optional)
               </h2>
@@ -374,40 +358,12 @@ export default function FeedbkForm({ extensionData, onSubmit }) {
               ></textarea>
             </div>
 
-            {/* Email Address */}
-            <div className="mb-8">
-              <h2 className="text-xl font-medium mb-4">
-                Email address (optional)
-              </h2>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Your email address"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <p className="text-sm text-gray-500 mt-2">
-                We'll only use this to follow up on your feedback or notify you
-                of improvements
-              </p>
-            </div>
-
-
-
             {/* Action Buttons */}
-            <div className="flex flex-col md:flex-row justify-between mt-8">
-              <button
-                type="button"
-                onClick={handleSkip}
-                className="order-2 md:order-1 border border-blue-500 text-blue-500 px-6 py-3 rounded-md hover:bg-blue-50 transition mt-4 md:mt-0"
-              >
-                Skip and Continue
-              </button>
+            <div className="flex flex-col md:flex-row justify-between">
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="order-1 md:order-2 bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition"
+                className="order-1 md:order-2 bg-[#1671D9] text-white px-6 py-3 rounded-md hover:bg-blue-600 transition"
               >
                 Submit Feedback
               </button>

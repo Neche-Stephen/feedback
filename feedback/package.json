@@ -1,5 +1,6 @@
 {
   "name": "feedback",
+  "homepage": "https://Neche-Stephen.github.io/feedback",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,10 +8,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
     "@tailwindcss/vite": "^4.1.4",
+    "cli-progress": "^3.12.0",
+    "googleapis": "^148.0.0",
     "lucide-react": "^0.503.0",
     "papaparse": "^5.5.2",
     "react": "^19.0.0",

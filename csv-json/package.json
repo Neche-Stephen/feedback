@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/storage": "^7.16.0",
     "papaparse": "^5.5.2"
   }
 }
