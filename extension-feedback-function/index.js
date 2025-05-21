@@ -41,22 +41,20 @@ exports.submitFormToSheet = async (req, res) => {
       issuesFormatted = formData.issues || "";
     }
 
-    // Format data for Google Sheetsß
+    // Format data for Google Sheets
     const values = [
       [
         new Date().toISOString(),
         formData.extensionId,
         formData.extensionName,
-        formData.email || "",
         issuesFormatted,
-        formData.issueLocation || "",
         formData.additionalDetails || "",
       ],
     ];
 
     // Google Sheets document ID and range
     const spreadsheetId = "1f386mJUbkum8bfWpQNghmh2pivby10jrWtJ1bbGZweY"; // spreadsheet ID
-    const range = "Sheet1!A:G"; // range based on data columns
+    const range = "Sheet1!A:E"; // range based on data columns
 
     // Append data to the sheet
     const response = await sheets.spreadsheets.values.append({
